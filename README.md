@@ -32,7 +32,8 @@ El proyecto está desarrollado utilizando el stack MERN (MongoDB, Express, React
 ## Instalación y Configuración
 ### Repositorios
 - [Frontend](https://github.com/lisandrocoronel3444/frontend-proyecto.git)
-- El backend será subido próximamente a un repositorio independiente.
+- [Backend](https://github.com/lisandrocoronel3444/backend-proyecto)
+- 
 
 ### Frontend
 1. Clonar el repositorio:
@@ -45,30 +46,17 @@ El proyecto está desarrollado utilizando el stack MERN (MongoDB, Express, React
    cd frontend-proyecto
    npm install
    ```
-
-3. Configurar las variables de entorno:
-   Crear un archivo `.env` en la raíz del proyecto con las siguientes variables:
-   ```env
-   VITE_API_USUARIO=http://localhost:4000/proyectoFinal/auth/
-   VITE_API_PRODUCTO=http://localhost:4000/proyectoFinal/productos
-   VITE_API_PEDIDO=http://localhost:4000/proyectoFinal/pedidos
-   ```
-
-4. Iniciar la aplicación frontend:
+3. Iniciar la aplicación frontend:
    ```bash
    npm run dev
    ```
 
-### Backend (Pendiente de Publicación)
-1. Clonar el repositorio del backend (enlace disponible próximamente).
+### Backend 
+1. Clonar el repositorio del backend [Backend](https://github.com/lisandrocoronel3444/backend-proyecto).
+ 
 2. Instalar las dependencias con `npm install`.
-3. Configurar las variables de entorno en un archivo `.env`:
-   ```env
-   PORT=5000
-   MONGO_URI=tu_url_de_mongo
-   JWT_SECRET=tu_clave_secreta
-   ```
-4. Iniciar el servidor:
+
+3. Iniciar el servidor:
    ```bash
    npm run dev
    ```
@@ -93,19 +81,4 @@ El proyecto está desarrollado utilizando el stack MERN (MongoDB, Express, React
 ## Autenticación
 Este proyecto utiliza **JSON Web Tokens (JWT)** para autenticar y autorizar a los usuarios. Los usuarios deben iniciar sesión para recibir un token que se envía en el encabezado `x-token` con cada solicitud protegida.
 
-## Contribución
-Si deseas contribuir al proyecto:
-1. Haz un fork del repositorio.
-2. Crea una rama para tu función/bugfix.
-   ```bash
-   git checkout -b nombre-de-la-rama
-   ```
-3. Realiza tus cambios y haz commit.
-   ```bash
-   git commit -m "Descripcion de los cambios"
-   ```
-4. Haz push de la rama y crea un Pull Request.
-
-## Licencia
-Este proyecto está bajo la licencia MIT. Puedes consultar el archivo [LICENSE](LICENSE) para más detalles.
 
