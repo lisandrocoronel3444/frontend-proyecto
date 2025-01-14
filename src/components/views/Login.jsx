@@ -10,7 +10,6 @@ const Login = ({ setUsuarioLogueado }) => {
   const navegacion = useNavigate();
 
   const onSubmit = (usuario) => {
-    console.log(usuario);
     login(usuario).then((respuesta) => {
       if (respuesta && respuesta.status === 200) {
         sessionStorage.setItem('usuario', JSON.stringify(respuesta));
