@@ -45,7 +45,8 @@ export const crearUsuario = async (usuario) => {
 // Consultar lista de productos
 export const consultaListaProductos = async () => {
   try {
-    const respuesta = await fetch(URLProducto);
+    const respuesta = await fetch(URLProducto)
+    
     const listaProductos = await respuesta.json();
     return listaProductos;
   } catch (error) {

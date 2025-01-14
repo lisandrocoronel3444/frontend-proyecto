@@ -39,15 +39,13 @@ body{
 }
 
 
-.producto-precio {
+.precio {
   font-weight: bold;
- 
-}
-
-.precio{
-  font-size: 1.2rem;
+  font-size: 1.2em;
   color:  #333;
 }
+ 
+
 
 .add-to-cart {
   background-color: #333;

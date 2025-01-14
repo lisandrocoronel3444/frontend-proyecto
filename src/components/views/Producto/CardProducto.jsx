@@ -41,9 +41,9 @@ const CardProducto = ({ producto, handleAgregar, handleQuitar }) => {
           <div className="producto-categoria mb-2">{producto.categoria}</div>
           <Card.Title className="producto-titulo">{producto.nombreProducto}</Card.Title>
           <Card.Text className="producto-descripcion flex-grow-1">{producto.descripcion}</Card.Text>
-          <Card.Text className="producto-precio">
-            <p className="precio">Precio: ${producto.precio}</p>
-          </Card.Text>
+          
+            <p className="precio">${producto.precio}</p>
+         
 
           {agregado ? (
             <Button
