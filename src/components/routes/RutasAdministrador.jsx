@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import CrearProducto from "../views/Producto/CrearProducto";
-import EditarProducto from "../views/producto/EditarProducto";
+import EditarProducto from "../views/Producto/EditarProducto";
 import Admin from "../views/Admin";
 import GestionPedidos from "../views/Pedido/GestionPedidos";
 import GestionUsuarios from "../views/Usuario/GestionUsuarios";
