@@ -1,0 +1,447 @@
+/* Estilos generales para el contenedor del formulario */
+body{
+  font-family: "Poppins", sans-serif; /* Fuente elegante */
+}
+/*Estilos para Card*/
+
+.producto-img {
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Categoría */
+.producto-categoria {
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #ff5722;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+
+.producto-titulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+
+.producto-descripcion {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 1rem;
+  text-align: center;
+
+  overflow: hidden;
+}
+
+
+.producto-precio {
+  font-weight: bold;
+ 
+}
+
+.precio{
+  font-size: 1.2rem;
+  color:  #333;
+}
+
+.add-to-cart {
+  background-color: #333;
+  color: white;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  justify-content: center;
+}
+.home-title h1, .contacto-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.add-to-cart:hover {
+  background-color: #222;
+}
+
+.producto-carrito-icono {
+  font-size: 1.3rem;
+  color: white;
+}
+
+
+
+.boton-ver-mas {
+  font-size: 1.5rem; 
+  padding: 15px 30px; 
+  background-color: #333; 
+   color: white; 
+  border-radius: 5px; 
+  border: none; 
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.boton-ver-mas:hover {
+  background-color: #222;
+  transform: scale(1.1);
+}
+
+
+
+.acerca-de h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+/* Alineación en pantallas pequeñas (Móviles) */
+@media (max-width: 768px) {
+  .acerca-de .acerca-de-texto {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .acerca-de .acerca-de-img {
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Estilos para el formulario */
+  .login-form {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  /* Estilos para el título */
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #343a40; /* Gris oscuro */
+  }
+  
+  /* Estilos para las etiquetas de los campos */
+  .login-form .form-label {
+    font-weight: 600;
+    color: #495057; /* Gris medio */
+  }
+  
+  /* Estilos para los campos de entrada */
+  .login-form .form-control {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  
+  /* Estilos para el botón de envío */
+  .login-form .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 0.75rem;
+    width: 100%;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-form .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para el enlace de "Olvidé mi contraseña" */
+  .login-form .forgot-password {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .login-form .forgot-password a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .login-form .forgot-password a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 0.95rem;
+  }
+  
+  .card-img-top {
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  /* Estilos generales */
+/* Estilos generales para el panel de administración */
+.admin-section {
+    background-color: #f4f4f4;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  /* Barra de navegación */
+  .nav-pills-custom .nav-link {
+    border-radius: 25px;
+    padding: 12px 25px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    background-color: #e9ecef;
+    color: #495057;
+    border: 1px solid #ced4da;
+  }
+  
+  .nav-pills-custom .nav-link:hover,
+  .nav-pills-custom .nav-link.active {
+    background-color: #495057;
+    color: #fff;
+    border-color: #495057;
+  }
+  
+  .nav-pills-custom .nav-link.active {
+    font-weight: 600;
+  }
+  
+  .nav-icon {
+    margin-right: 8px;
+  }
+  
+  /* Tabla personalizada */
+  .table-custom {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .table-custom th {
+    background-color: #343a40;
+    color: white;
+  }
+  
+  .table-custom td {
+    font-size: 1.1rem;
+    color: #495057;
+  }
+  
+  .table-custom tbody tr:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .table-custom td {
+    text-align: center;
+  }
+  
+  /* Botón Agregar Producto */
+  .btn-dark {
+    background-color: #212529;
+    border-color: #212529;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .btn-dark:hover {
+    background-color: #343a40;
+    border-color: #343a40;
+  }
+  
+  /* Títulos */
+  h1.display-4 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  h2.text-muted {
+    font-size: 1.75rem;
+    color: #6c757d;
+  }
+  
+  /* Estilo para iconos de navegación */
+  .nav-link .nav-icon {
+    font-size: 1.25rem;
+  }
+  
+  /* Agregar sombras sutiles para un toque más profesional */
+  .nav-pills-custom .nav-link,
+  .table-custom {
+    transition: all 0.3s ease;
+  }
+  
+  .table-custom tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  
+  /*carrito
+
+
+  /* Contenedor principal del carrito */
+.carrito-container {
+  margin-top: 3rem;
+}
+
+/* Título principal del carrito */
+.carrito-title {
+  font-weight: bold;
+  color: #d9534f;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Tabla de productos */
+.carrito-table {
+  background-color: #fffdf0;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden; /* Para redondear esquinas de encabezado */
+}
+
+/* Encabezado de la tabla */
+.carrito-table thead {
+  background-color: #ff6f61;
+  color: white;
+}
+
+/* Celdas de la tabla */
+.carrito-table tbody td {
+  vertical-align: middle;
+}
+
+/* Total en el pie de la tabla */
+.carrito-total {
+  font-weight: bold;
+  color: #d9534f;
+  text-align: right;
+}
+
+/* Botones */
+.carrito-btn {
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Botón para seguir comprando */
+.carrito-btn-volver {
+  background-color: #ffecd1;
+  border-color: #ffa36c;
+  color: #ff6f61;
+}
+
+.carrito-btn-volver:hover {
+  background-color: #ffcea8;
+  border-color: #ff8e5c;
+}
+
+/* Botón para realizar pedido */
+.carrito-btn-pedido {
+  background-color: #28a745;
+  border-color: #218838;
+  color: white;
+}
+
+.carrito-btn-pedido:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #6c757d;
+}
+
+/* Botón para eliminar producto */
+.carrito-btn-eliminar {
+  
+  background-color: #dc3545;
+  border: none;
+}
+
+.carrito-btn-eliminar:hover {
+  background-color: #c82333;
+}
+
+/* Adaptaciones responsivas */
+@media (max-width: 768px) {
+  .carrito-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .carrito-title {
+    font-size: 1.5rem;
+  }
+}
+
+
+.producto-contenedor{
+  cursor: pointer;
+}
+.imagen-yo{
+  max-width: 90%;
+  border: 5px solid #f1f1f1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+

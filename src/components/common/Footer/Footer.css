@@ -1,0 +1,43 @@
+.custom-footer {
+    background-color: #343a40; /* Fondo oscuro */
+    color: #f8f9fa; /* Texto claro */
+    padding: 30px 0;
+  }
+  
+  .footer-phrase {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .social-link svg {
+    font-size: 1.5rem;
+    color: #adb5bd;
+    transition: color 0.3s ease;
+  }
+  
+  .social-link:hover svg {
+    color: #ffffff;
+  }
+  
+  .footer-rights {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-phrase,
+    .footer-rights,
+    .footer-about {
+      text-align: center;
+    }
+  }
+  

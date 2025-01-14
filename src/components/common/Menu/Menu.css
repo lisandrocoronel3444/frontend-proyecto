@@ -1,0 +1,21 @@
+/* Menu.css */
+.brand{
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    justify-content: center; /* Alinea horizontalmente */
+}
+.logo{
+
+    width: 100px;
+}
+.cart{
+    margin-right: 1em;
+}
+.nav-parrafo{
+    margin-bottom: 0;
+}
+.custom-navbar {
+    padding-top: 5px;  /* Reduce el padding superior */
+    padding-bottom: 5px;  /* Reduce el padding inferior */
+  }
+  
