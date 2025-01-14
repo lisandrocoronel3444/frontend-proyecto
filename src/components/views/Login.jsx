@@ -1,32 +1,33 @@
-import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import React from "react";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { login } from "../helpers/queries";
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import { useForm } from "react-hook-form";
+import { useNavigate, Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = ({ setUsuarioLogueado }) => {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
   const navegacion = useNavigate();
 
   const onSubmit = (usuario) => {
     login(usuario).then((respuesta) => {
       if (respuesta && respuesta.status === 200) {
-        sessionStorage.setItem('usuario', JSON.stringify(respuesta));
+        sessionStorage.setItem("usuario", JSON.stringify(respuesta));
         Swal.fire(
-          'Bienvenido',
+          "Bienvenido",
           `${respuesta.nombreUsuario} iniciaste sesion correctamente`,
-          'success'
+          "success"
         );
         setUsuarioLogueado(respuesta);
         // Redireccionar
-        navegacion('/admin');
+        navegacion("/admin");
       } else {
-        Swal.fire(
-          'Error',
-          'Email o password incorrecto ',
-          'error'
-        );
+        Swal.fire("Error", "Email o password incorrecto ", "error");
       }
     });
   };
@@ -48,7 +49,8 @@ const Login = ({ setUsuarioLogueado }) => {
                     pattern: {
                       value:
                         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
-                      message: "El email debe cumplir con el formato mail@dominio.com",
+                      message:
+                        "El email debe cumplir con el formato mail@dominio.com",
                     },
                   })}
                 />
@@ -81,7 +83,9 @@ const Login = ({ setUsuarioLogueado }) => {
             </Form>
 
             <div className="mt-3 text-center">
-              <p>¿No tienes cuenta? <a href="/registro">Regístrate aquí</a></p>
+              <p>
+                ¿No tienes cuenta? <Link to="/registro">Regístrate aquí</Link>
+              </p>
             </div>
           </div>
         </Col>

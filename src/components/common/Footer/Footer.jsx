@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Facebook, Twitter, Instagram } from "react-bootstrap-icons";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -20,30 +21,30 @@ const Footer = () => {
         <Row>
           <Col className="text-center mb-3">
             <div className="social-icons">
-              <a
+              <Link
                 href="/face"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
               >
                 <Facebook size={24} />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/twite"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
               >
                 <Twitter size={24} />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/insta"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
               >
                 <Instagram size={24} />
-              </a>
+              </Link>
             </div>
           </Col>
         </Row>
