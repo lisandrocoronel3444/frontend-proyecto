@@ -16,10 +16,7 @@ const Home = () => {
     });
   }, []);
 
-  const {
-    agregarCompra,
-    eliminarCompra,
-  } = useContext(carritoContext);
+  const { agregarCompra, eliminarCompra } = useContext(carritoContext);
 
   const handleAgregar = (producto) => {
     agregarCompra(producto);
@@ -41,7 +38,7 @@ const Home = () => {
         <section className="productos-destacados">
           <h4>Productos Destacados</h4>
           <Row>
-            {productos.map((producto) => (
+            {productos.slice(0, 4).map((producto) => (
               <CardProducto
                 key={producto._id}
                 producto={producto}

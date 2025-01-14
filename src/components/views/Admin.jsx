@@ -23,7 +23,7 @@ const Admin = () => {
 
       <Nav className="mt-4 nav-pills-custom">
         <NavItem>
-          <NavLink as={Link} to="/admin" end>
+          <NavLink as={Link} to="/admin" end className="active">
             <Box className="nav-icon" /> Gestionar Productos
           </NavLink>
         </NavItem>

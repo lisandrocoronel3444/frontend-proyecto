@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { crearUsuario } from "../helpers/queries";
+import { Link } from 'react-bootstrap-icons';
 
 const Registro = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -92,7 +93,7 @@ const Registro = () => {
             </Form>
 
             <div className="mt-3 text-center">
-              <p>¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a></p>
+              <p>¿Ya tienes cuenta? <LInk href="/login">Inicia sesión aquí</LInk></p>
             </div>
           </div>
         </Col>

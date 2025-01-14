@@ -56,8 +56,8 @@ const GestionPedidos = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink as={Link} to="/admin/gestion-pedidos">
-            <Box className="nav-icon" /> Gestionar Pedidos
+          <NavLink as={Link} to="/admin/gestion-pedidos" className="active">
+            <Box className="nav-icon " /> Gestionar Pedidos
           </NavLink>
         </NavItem>
         <NavItem>
