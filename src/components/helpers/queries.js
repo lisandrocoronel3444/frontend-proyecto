@@ -31,8 +31,7 @@ export const crearUsuario = async (usuario) => {
     const respuesta = await fetch(`${URLUsuario}/nuevo`, {
       method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        "x-token": token,
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(usuario),
     });
