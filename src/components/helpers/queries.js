@@ -27,7 +27,6 @@ export const login = async (usuario) => {
 // Crear usuario
 export const crearUsuario = async (usuario) => {
   try {
-    const token = JSON.parse(sessionStorage.getItem('usuario')).token;
     const respuesta = await fetch(`${URLUsuario}/nuevo`, {
       method: 'POST',
       headers: {
