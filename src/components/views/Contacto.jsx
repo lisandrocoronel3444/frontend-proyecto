@@ -1,7 +1,15 @@
 import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Contacto = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Previene la recarga de la página
+    navigate('/404'); // Redirige a la página de error 404
+  };
+
   return (
     <section className="contacto my-4">
       <Container>
@@ -9,7 +17,7 @@ const Contacto = () => {
         <Row>
           <Col xs={12} md={6} className="mb-4 mx-auto">
             <h4>Envíanos un mensaje</h4>
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Form.Group controlId="formNombre">
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control type="text" placeholder="Tu nombre" />
