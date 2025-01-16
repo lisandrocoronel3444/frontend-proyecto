@@ -49,7 +49,7 @@ const Home = () => {
             ))}
           </Row>
           <div className="text-center my-4">
-            <Link href="/productos" className="boton-ver-mas ">
+            <Link to="/productos" className="boton-ver-mas ">
               Ver Más Productos
             </Link>
           </div>
