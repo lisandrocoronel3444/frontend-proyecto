@@ -17,6 +17,7 @@ export const login = async (usuario) => {
     return {
       status: response.status,
       nombreUsuario: datos.nombreUsuario,
+      token: datos.token,
     };
   } catch (error) {
     console.log(error);
