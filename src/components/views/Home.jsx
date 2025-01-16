@@ -6,6 +6,7 @@ import { Row, Container, Button } from "react-bootstrap";
 import Nosotros from "./Nosotros";
 import Contacto from "./Contacto";
 import { carritoContext } from "../context/CarritoContext";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [productos, setProductos] = useState([]);
@@ -48,9 +49,9 @@ const Home = () => {
             ))}
           </Row>
           <div className="text-center my-4">
-            <Button href="/productos" className="boton-ver-mas">
+            <Link href="/productos" className="boton-ver-mas ">
               Ver Más Productos
-            </Button>
+            </Link>
           </div>
         </section>
 
