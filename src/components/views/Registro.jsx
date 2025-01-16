@@ -1,34 +1,36 @@
-import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import React from "react";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { crearUsuario } from "../helpers/queries";
-import { Link } from 'react-bootstrap-icons';
+import { Link } from "react-bootstrap-icons";
 
 const Registro = () => {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
   const navigate = useNavigate();
 
   const onSubmit = (usuario) => {
     crearUsuario(usuario).then((respuesta) => {
       if (respuesta && respuesta.status === 201) {
         Swal.fire(
-          'Registro Exitoso',
+          "Registro Exitoso",
           `${respuesta.nombre} te has registrado correctamente`,
-          'success'
+          "success"
         );
-        // Redirigir al login después del registro exitoso
-        navigate('/login');
+        reset(); 
+        navigate("/login");
       } else {
-        Swal.fire(
-          'Error',
-          'Hubo un problema al registrar tu cuenta',
-          'error'
-        );
+        Swal.fire("Error", "Hubo un problema al registrar tu cuenta", "error");
       }
     });
   };
+  
 
   return (
     <Container className="login-container">
@@ -42,7 +44,9 @@ const Registro = () => {
                 <Form.Control
                   type="text"
                   placeholder="Ingresa tu nombre de usuario"
-                  {...register("nombreUsuario", { required: "El nombre de usuario es obligatorio" })}
+                  {...register("nombreUsuario", {
+                    required: "El nombre de usuario es obligatorio",
+                  })}
                 />
                 <Form.Text className="text-danger">
                   {errors.nombreUsuario?.message}
@@ -59,7 +63,8 @@ const Registro = () => {
                     pattern: {
                       value:
                         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
-                      message: "El email debe cumplir con el formato mail@dominio.com",
+                      message:
+                        "El email debe cumplir con el formato mail@dominio.com",
                     },
                   })}
                 />
@@ -93,7 +98,9 @@ const Registro = () => {
             </Form>
 
             <div className="mt-3 text-center">
-              <p>¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link></p>
+              <p>
+               <Link to="/register">Inicia sesion aqui</Link>
+              </p>
             </div>
           </div>
         </Col>
