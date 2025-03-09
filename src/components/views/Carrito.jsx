@@ -25,21 +25,23 @@ const Carrito = () => {
   };
 
   const handleRealizarPedido = async () => {
-    // Obtener el nombre del usuario desde sessionStorage
-    const nombreUsuario = sessionStorage.getItem("usuario");
-
-    if (nombreUsuario) {
-      
-      const nombre = JSON.parse(nombreUsuario);
-
+    // Obtener el objeto usuario desde sessionStorage
+    const usuario = sessionStorage.getItem("usuario");
+  
+    if (usuario) {
+      const usuarioObj = JSON.parse(usuario);  // Parseamos el objeto completo
+  
+      const nombreUsuario = usuarioObj.nombreUsuario;  // Extraemos solo el nombre del usuario
+  
       try {
         const respuesta = await realizarPedido(
-          nombre,
+          nombreUsuario,
           listaCompras,
           calcularTotal()
         );
-        console.log("Pedido realizado con éxito:", respuesta);
-        if (respuesta.status === 201) {
+        console.log("Respuesta del servidor:", respuesta);  // Verifica qué contiene la respuesta
+        
+        if (respuesta && respuesta.status === 201) {
           Swal.fire(
             "Pedido realizado",
             "Tu pedido ha sido procesado correctamente",
@@ -49,6 +51,7 @@ const Carrito = () => {
         } else {
           Swal.fire("Error", "Hubo un problema al realizar tu pedido", "error");
         }
+        
       } catch (error) {
         console.log("Error al realizar el pedido:", error);
         Swal.fire("Error", "Hubo un problema al realizar el pedido", "error");
@@ -59,6 +62,7 @@ const Carrito = () => {
       navigate("/login"); 
     }
   };
+  
 
   return (
     <Container className="carrito-container">

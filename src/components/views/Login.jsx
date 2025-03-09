@@ -15,22 +15,23 @@ const Login = ({ setUsuarioLogueado }) => {
   const navegacion = useNavigate();
 
   const onSubmit = (usuario) => {
-    login(usuario).then((respuesta) => {
-      if (respuesta && respuesta.status === 200) {
-        sessionStorage.setItem("usuario", JSON.stringify(respuesta));
-        Swal.fire(
-          "Bienvenido",
-          `${respuesta.nombreUsuario} iniciaste sesion correctamente`,
-          "success"
-        );
-        setUsuarioLogueado(respuesta);
-        // Redireccionar
-        navegacion("/admin");
-      } else {
-        Swal.fire("Error", "Email o password incorrecto ", "error");
-      }
-    });
-  };
+  login(usuario).then((respuesta) => {
+    console.log('Respuesta del login:', respuesta);  // Verifica la estructura aquí
+    if (respuesta && respuesta.status === 200) {
+      sessionStorage.setItem("usuario", JSON.stringify(respuesta));
+      Swal.fire(
+        "Bienvenido",
+        `${respuesta.nombreUsuario} iniciaste sesión correctamente`,
+        "success"
+      );
+      setUsuarioLogueado(respuesta);
+      // Redireccionar
+      navegacion("/admin");
+    } else {
+      Swal.fire("Error", "Email o contraseña incorrectos", "error");
+    }
+  });
+};
 
   return (
     <Container className="login-container">

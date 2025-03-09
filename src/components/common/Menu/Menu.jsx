@@ -55,9 +55,11 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
             </NavLink>
             {usuarioLogueado.nombreUsuario ? (
               <>
-                <NavLink end className="nav-item nav-link" to="/admin">
-                  Administrador
-                </NavLink>
+                {usuarioLogueado.rol === "admin" && (
+                  <NavLink end className="nav-item nav-link" to="/admin">
+                    Administrador
+                  </NavLink>
+                )}
                 <Button variant="dark" onClick={logout}>
                   Logout
                 </Button>

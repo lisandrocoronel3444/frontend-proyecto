@@ -14,31 +14,49 @@ export const login = async (usuario) => {
       body: JSON.stringify(usuario),
     });
     const datos = await response.json();
-    return {
-      status: response.status,
-      nombreUsuario: datos.nombreUsuario,
-      token: datos.token,
-    };
+    if (response.status === 200) {
+      // Guardar token y rol en sessionStorage
+      sessionStorage.setItem('usuario', JSON.stringify({
+        nombreUsuario: datos.nombreUsuario,
+        token: datos.token,
+        rol: datos.rol,  // Guardar rol en sessionStorage
+      }));
+
+      return {
+        status: response.status,
+        nombreUsuario: datos.nombreUsuario,
+        token: datos.token,
+        rol: datos.rol,  // Devolver rol
+      };
+    }
   } catch (error) {
     console.log(error);
   }
 };
 
 // Crear usuario
+// Crear usuario
 export const crearUsuario = async (usuario) => {
   try {
+    // Aquí aseguramos que el rol se envíe junto con los demás datos del usuario
     const respuesta = await fetch(`${URLUsuario}/nuevo`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(usuario),
+      body: JSON.stringify({
+        ...usuario,  // Esto incluirá nombreUsuario, email, password, etc.
+        rol: "operador",  // Establecer el rol por defecto
+      }),
     });
+
+    // Devolver la respuesta
     return respuesta;
   } catch (error) {
     console.log(error);
   }
 };
+
 
 // Consultar lista de productos
 export const consultaListaProductos = async () => {
@@ -129,11 +147,14 @@ export const realizarPedido = async (nombreUsuario, productos, total) => {
       },
       body: JSON.stringify(pedidoData),
     });
-    return respuesta.json();
+
+    const data = await respuesta.json();
+    return { status: respuesta.status, ...data };  
   } catch (error) {
     console.log(error);
   }
 };
+
 
 // Consultar lista de pedidos
 export const consultaListaPedidos = async () => {
@@ -188,15 +209,27 @@ export const eliminarPedido = async (pedidoId) => {
 // Obtener usuarios
 export const obtenerUsuarios = async () => {
   try {
-    const token = JSON.parse(sessionStorage.getItem('usuario')).token;
+    const token = JSON.parse(sessionStorage.getItem('usuario'))?.token;
+    console.log("Token:", token);  // Verifica el token
+
+    if (!token) {
+      throw new Error("Token no disponible");
+    }
+
     const respuesta = await fetch(URLUsuario, {
+      method: "GET",
       headers: {
         "x-token": token,
       },
     });
+
+    if (!respuesta.ok) {
+      throw new Error(`Error en la solicitud: ${respuesta.status}`);
+    }
+
     const listaUsuarios = await respuesta.json();
     return listaUsuarios;
   } catch (error) {
-    console.log(error);
+    console.log("Error:", error);
   }
 };
