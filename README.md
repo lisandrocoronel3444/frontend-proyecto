@@ -7,6 +7,10 @@ Don Pedro es un ecommerce diseñado para revolucionar la forma en que los client
 
 El proyecto está desarrollado utilizando el stack MERN (MongoDB, Express, React, Node.js) y aplica principios modernos de desarrollo web, incluyendo autenticación basada en JWT, validaciones robustas y un diseño responsive.
 
+## Cuenta Administrador
+**Correo:** admin@rollingcode.com
+**Contraseña:** Admin123
+
 ## Características Principales
 - **Exploración de Productos:** Los usuarios pueden navegar por una lista de productos disponibles con descripciones detalladas.
 - **Carrito de Compras:** Integración de un carrito que permite agregar, editar y eliminar productos antes de realizar un pedido.
