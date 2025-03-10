@@ -210,7 +210,7 @@ export const eliminarPedido = async (pedidoId) => {
 export const obtenerUsuarios = async () => {
   try {
     const token = JSON.parse(sessionStorage.getItem('usuario'))?.token;
-    console.log("Token:", token);  // Verifica el token
+    
 
     if (!token) {
       throw new Error("Token no disponible");
@@ -233,3 +233,49 @@ export const obtenerUsuarios = async () => {
     console.log("Error:", error);
   }
 };
+// Eliminar usuario
+export const eliminarUsuario = async (id) => {
+  try {
+    const token = JSON.parse(sessionStorage.getItem('usuario')).token;
+    const respuesta = await fetch(`${URLUsuario}/${id}`, {
+      method: "DELETE",
+      headers: {
+        "x-token": token,
+      },
+    });
+
+    if (!respuesta.ok) {
+      const errorData = await respuesta.json();
+      throw new Error(`Error al eliminar usuario: ${errorData.mensaje || respuesta.statusText}`);
+    }
+
+    return respuesta;
+  } catch (error) {
+    console.error("Error en eliminarUsuario:", error);
+    throw error;  // Re-lanzar el error para que lo maneje el frontend
+  }
+};
+
+// Editar usuario
+export const editarUsuario = async (id, usuario) => {
+  try {
+    const token = JSON.parse(sessionStorage.getItem('usuario')).token;
+    const respuesta = await fetch(`${URLUsuario}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "x-token": token,
+      },
+      body: JSON.stringify(usuario),
+    });
+
+    if (!respuesta.ok) {
+      throw new Error("Error al editar usuario");
+    }
+
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
