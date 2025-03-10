@@ -7,26 +7,29 @@ const initialState = [];
 const ComprasReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case "[CARRITO] Agregar Compra":
-      // Si el producto ya está en el carrito, solo actualiza su cantidad
-      const existeProducto = state.find(item => item._id === action.payload._id);
+      const existeProducto = state.find(
+        (item) => item._id === action.payload._id
+      );
       if (existeProducto) {
-        return state.map(item => 
-          item._id === action.payload._id ? { ...item, cantidad: item.cantidad + 1 } : item
+        return state.map((item) =>
+          item._id === action.payload._id
+            ? { ...item, cantidad: item.cantidad + 1 }
+            : item
         );
       } else {
         return [...state, { ...action.payload, cantidad: 1 }];
       }
 
     case "[CARRITO] Aumentar Cantidad Compra":
-      return state.map(item => {
+      return state.map((item) => {
         if (item._id === action.payload) {
-          return { ...item, cantidad: item.cantidad + 1 }; // Solo aumenta la cantidad
+          return { ...item, cantidad: item.cantidad + 1 };
         }
         return item;
       });
 
     case "[CARRITO] Disminuir Cantidad Compra":
-      return state.map(item => {
+      return state.map((item) => {
         if (item._id === action.payload && item.cantidad > 1) {
           return { ...item, cantidad: item.cantidad - 1 }; // No permite disminuir de 1
         }
@@ -38,6 +41,8 @@ const ComprasReducer = (state = initialState, action = {}) => {
 
     default:
       return state;
+    case "[CARRITO] Vaciar Carrito":
+      return [];
   }
 };
 
@@ -45,30 +50,35 @@ const CarritoProvider = ({ children }) => {
   const [listaCompras, dispatch] = useReducer(ComprasReducer, initialState);
 
   const agregarCompra = (compra) => {
-    const action = { 
-      type: "[CARRITO] Agregar Compra", payload: compra 
+    const action = {
+      type: "[CARRITO] Agregar Compra",
+      payload: compra,
     };
     dispatch(action);
   };
 
   const aumentarCantidad = (id) => {
-    const action = { 
-      type: "[CARRITO] Aumentar Cantidad Compra", 
-      payload: id 
+    const action = {
+      type: "[CARRITO] Aumentar Cantidad Compra",
+      payload: id,
     };
     dispatch(action);
   };
 
   const disminuirCantidad = (id) => {
-    const action = { 
-      type: "[CARRITO] Disminuir Cantidad Compra", 
-      payload: id 
+    const action = {
+      type: "[CARRITO] Disminuir Cantidad Compra",
+      payload: id,
     };
     dispatch(action);
   };
 
   const eliminarCompra = (id) => {
     const action = { type: "[CARRITO] Eliminar Compra", payload: id };
+    dispatch(action);
+  };
+  const vaciarCarrito = () => {
+    const action = { type: "[CARRITO] Vaciar Carrito" };
     dispatch(action);
   };
 
@@ -80,6 +90,7 @@ const CarritoProvider = ({ children }) => {
         aumentarCantidad,
         disminuirCantidad,
         eliminarCompra,
+        vaciarCarrito, 
       }}
     >
       {children}

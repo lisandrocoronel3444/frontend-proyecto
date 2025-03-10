@@ -2,15 +2,19 @@ import React, { useContext } from "react";
 import { Container, Table, Button } from "react-bootstrap";
 import { carritoContext } from "../context/CarritoContext";
 import { useNavigate } from "react-router-dom";
-import { realizarPedido } from "../helpers/queries.js"; 
+import { realizarPedido } from "../helpers/queries.js";
 import Swal from "sweetalert2";
 
 const Carrito = () => {
-  const { listaCompras, aumentarCantidad, disminuirCantidad, eliminarCompra } =
-    useContext(carritoContext);
+  const {
+    listaCompras,
+    aumentarCantidad,
+    disminuirCantidad,
+    eliminarCompra,
+    vaciarCarrito,
+  } = useContext(carritoContext);
 
   const navigate = useNavigate();
-
 
   const calcularTotal = () => {
     return listaCompras.reduce(
@@ -19,39 +23,36 @@ const Carrito = () => {
     );
   };
 
-
   const handleSeguirComprando = () => {
-    navigate("/productos"); 
+    navigate("/productos");
   };
 
   const handleRealizarPedido = async () => {
-    // Obtener el objeto usuario desde sessionStorage
     const usuario = sessionStorage.getItem("usuario");
-  
+
     if (usuario) {
-      const usuarioObj = JSON.parse(usuario);  // Parseamos el objeto completo
-  
-      const nombreUsuario = usuarioObj.nombreUsuario;  // Extraemos solo el nombre del usuario
-  
+      const usuarioObj = JSON.parse(usuario);
+
+      const nombreUsuario = usuarioObj.nombreUsuario;
+
       try {
         const respuesta = await realizarPedido(
           nombreUsuario,
           listaCompras,
           calcularTotal()
         );
-        console.log("Respuesta del servidor:", respuesta);  // Verifica qué contiene la respuesta
-        
+
         if (respuesta && respuesta.status === 201) {
           Swal.fire(
             "Pedido realizado",
             "Tu pedido ha sido procesado correctamente",
             "success"
           );
-          navigate("/admin/gestion-pedidos"); 
+          vaciarCarrito();
+          navigate("/admin/gestion-pedidos");
         } else {
           Swal.fire("Error", "Hubo un problema al realizar tu pedido", "error");
         }
-        
       } catch (error) {
         console.log("Error al realizar el pedido:", error);
         Swal.fire("Error", "Hubo un problema al realizar el pedido", "error");
@@ -59,10 +60,9 @@ const Carrito = () => {
     } else {
       console.log("No se encontró el usuario en la sesión");
       Swal.fire("Error", "No has iniciado sesión", "error");
-      navigate("/login"); 
+      navigate("/login");
     }
   };
-  
 
   return (
     <Container className="carrito-container">
@@ -129,7 +129,6 @@ const Carrito = () => {
         </tfoot>
       </Table>
 
-      
       <div className="d-flex justify-content-between mt-4">
         <Button
           variant="secondary"
